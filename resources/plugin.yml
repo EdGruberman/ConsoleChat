@@ -1,0 +1,28 @@
+name: ConsoleChat
+version: @VERSION@
+description: Treat console input the same as in-game chat
+author: EdGruberman (ed@rjump.com)
+website: http://github.com/EdGruberman/ConsoleChat
+main: edgruberman.bukkit.consolechat.Main
+commands:
+    'consolechat:toggle':
+        description: Enables or disables console input same as in-game chat
+        permission: consolechat.toggle
+        usage: /<command>
+    'consolechat:reload':
+        description: Reload ConsoleChat plugin
+        permission: consolechat.reload
+        usage: /<command>
+permissions:
+    consolechat.admin:
+        description: Can use all features
+        default: op
+        children:
+            consolechat.toggle: true
+            consolechat.reload: true
+    consolechat.toggle:
+        description: Can use consolechat.toggle command
+        default: false
+    consolechat.reload:
+        description: Can use reload command
+        default: false

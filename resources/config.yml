@@ -1,0 +1,10 @@
+log-level: INFO
+default-enable: true
+chat: 'say {0}'
+language:
+    color-code: '§'
+    enabled: '-> §7Console §2automatic chat enabled§7; Commands must be prefixed with a forward slash §8(e.g. §5/command password§8)'
+    disabled: '-> §7Console §2chat reverted§7; Chat can only be performed through commands now'
+    requires-console: '-> §cOnly the server console§7 can use the {1} command' # 1 = Command Label
+    reload: '-> §7{1} plugin §2reloaded' # 1 = Plugin Name
+version: @VERSION@
