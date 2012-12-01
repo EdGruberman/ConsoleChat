@@ -23,13 +23,8 @@ public final class Toggle implements CommandExecutor {
             return true;
         }
 
-        if (this.filter.isEnabled()) {
-            this.filter.disable();
-            Main.courier.send(sender, "disabled");
-        } else {
-            this.filter.enable();
-            Main.courier.send(sender, "enabled");
-        }
+        if (this.filter.isEnabled()) { this.filter.disable(); } else { this.filter.enable(); }
+        Main.courier.send(sender, ( this.filter.isEnabled() ? "enabled" : "disabled" ));
         return true;
     }
 
