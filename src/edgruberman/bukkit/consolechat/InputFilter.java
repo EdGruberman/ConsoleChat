@@ -3,6 +3,7 @@ package edgruberman.bukkit.consolechat;
 import java.text.MessageFormat;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.HandlerList;
 import org.bukkit.event.Listener;
@@ -12,12 +13,14 @@ import org.bukkit.plugin.Plugin;
 public final class InputFilter implements Listener {
 
     private final Plugin plugin;
+    private final char formatCode;
     private final String chat;
 
     private boolean enabled = false;
 
-    InputFilter(final Plugin plugin, final String chat) {
+    InputFilter(final Plugin plugin, final char formatCode, final String chat) {
         this.plugin = plugin;
+        this.formatCode = formatCode;
         this.chat = chat;
     }
 
@@ -27,7 +30,7 @@ public final class InputFilter implements Listener {
         if (command.startsWith("/")) {
             command = command.substring(1);
         } else {
-            command = MessageFormat.format(this.chat, command);
+            command = ChatColor.translateAlternateColorCodes(this.formatCode, MessageFormat.format(this.chat, command));
         }
         event.setCommand(command);
     }

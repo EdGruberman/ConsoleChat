@@ -13,14 +13,17 @@ public final class Main extends CustomPlugin implements Listener {
     public static ConfigurationCourier courier;
 
     @Override
-    public void onLoad() { this.putConfigMinimum(CustomPlugin.CONFIGURATION_FILE, "1.0.0"); }
+    public void onLoad() {
+        this.putConfigMinimum("1.1.0");
+        this.putConfigMinimum("language.yml", "1.1.0");
+    }
 
     @Override
     public void onEnable() {
         this.reloadConfig();
-        Main.courier = ConfigurationCourier.Factory.create(this).setPath("language").setColorCode("color-code").build();
+        Main.courier = ConfigurationCourier.Factory.create(this).setBase(this.loadConfig("language.yml")).setFormatCode("format-code").build();
 
-        final InputFilter filter = new InputFilter(this, this.getConfig().getString("chat"));
+        final InputFilter filter = new InputFilter(this, this.getConfig().getString("format-code").charAt(0), this.getConfig().getString("chat"));
         if (this.getConfig().getBoolean("default-enable")) {
             filter.enable();
             Main.courier.send(Bukkit.getConsoleSender(), "enabled");
