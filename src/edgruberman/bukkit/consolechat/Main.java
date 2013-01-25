@@ -15,7 +15,7 @@ public final class Main extends CustomPlugin implements Listener {
     @Override
     public void onLoad() {
         this.putConfigMinimum("1.1.0");
-        this.putConfigMinimum("language.yml", "1.1.0");
+        this.putConfigMinimum("language.yml", "1.1.2");
     }
 
     @Override
